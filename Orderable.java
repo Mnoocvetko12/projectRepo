@@ -43,4 +43,13 @@ public abstract class Orderable {
 		this.name = name;
 	}
 
+	@Override
+	public String toString() {
+		return name + " "+ price;
+	}
+
+
+
+
+
 }

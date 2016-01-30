@@ -15,9 +15,15 @@ public class User {
 		setUsername(username);
 		setPassword(password);
 		setRestorant(restorant);
+		kolichka = new ShoppingCart();
 	}
 
+//	void addIngridientsTothePizza()
 	
+	
+	void order(Orderable itemFromMenu){
+		this.kolichka.addItemToShopCart(itemFromMenu);
+	}
 	
 	
 	public String getUsername() {

@@ -2,7 +2,7 @@ package dominos;
 
 import java.util.LinkedList;
 
-public class Menu {
+public class Menu implements Iconstants{
 	private static Menu menuEdinstveno = null;
 
 	private Menu() {
@@ -15,20 +15,9 @@ public class Menu {
 		return menuEdinstveno;
 	}
 
-	public static final String PIZZA_TESTO_TUNKO = "Tunko i hrupkavo";
-	public static final String PIZZA_TESTO_SREDNO = "Italiansko";
-	public static final String PIZZA_TESTO_DEBELO = "Tradicionno";
-	public static final String PIZZA_SIZE_S = "Sredna";
-	public static final String PIZZA_SIZE_M = "Goljama";
-	public static final String PIZZA_SIZE_L = "Jumbo";
 
-	public static final String PIZZA_PEPERONI = "PEPERONI";
-	public static final String PIZZA_MEDITERANEO = "MEDITERANEO";
-	public static final String PIZZA_GARDEN_KLASIK = "GARDEN KLASIK";
 
-	public static final String DRINK_COCA_COLA_125 = "COCA-COLA 1.25L";
-	public static final String PASTA_KARBONARA = "PASTA KARBONARA";
-	public static final String SALAD_ROCA = "SALATA ROCA";
+
 
 	// salad
 	private static Ingridient tunaSP = new Ingridient("Riba Ton", 1.50);
@@ -39,7 +28,7 @@ public class Menu {
 	private static Ingridient oliveOilSA = new Ingridient("Maslini", 1.50);
 	// pasta
 	// pizza
-	private static LinkedList<Ingridient> peperoniIngridient = peperoni.addPizzaSustavki(onion_SP);
+	
 	private static Ingridient smetanaSausePP = new Ingridient("Smetana sos", 1.50);
 	private static Ingridient tomatoSausePP = new Ingridient("Domaten sos", 1.50);
 	private static Ingridient bbqSausePP = new Ingridient("BBQ sos", 1.50);
@@ -67,16 +56,18 @@ public class Menu {
 	private static Ingridient freshTomatosALL = new Ingridient("Presni Domati", 1.50);
 	private static Ingridient olivesAll = new Ingridient("Maslini", 1.50);
 	private static Ingridient riganAll = new Ingridient("Rigan", 1.50);
-	static Pizza peperoni = new Pizza("PEPERONI", "Sredna", peperoniIngridient);
 
-	public static Menu getMenuEdinstveno() {
-		return menuEdinstveno;
-	}
+	static Pizza peperoniS = new Pizza(PIZZA_PEPERONI, PIZZA_S, Pizza.setPeperoniIngridients(), Prices.getTunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni());
+	static Pizza peperoniM = new Pizza(PIZZA_PEPERONI, PIZZA_M, Pizza.setPeperoniIngridients(), Prices.getTunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni());
+	static Pizza peperoniL = new Pizza(PIZZA_PEPERONI, PIZZA_L, Pizza.setPeperoniIngridients(), Prices.getTunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni());
+	static Pizza mediteraneoS = new Pizza(PIZZA_MEDITERANEO, PIZZA_S, Pizza.setPeperoniIngridients(), Prices.getTunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni());
+	static Pizza mediteraneoM = new Pizza(PIZZA_MEDITERANEO, PIZZA_M, Pizza.setPeperoniIngridients(), Prices.getTunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni());
+	static Pizza mediteraneoL = new Pizza(PIZZA_MEDITERANEO, PIZZA_L, Pizza.setPeperoniIngridients(), Prices.getTunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni());
+	
 
-	public static void setMenuEdinstveno(Menu menuEdinstveno) {
-		Menu.menuEdinstveno = menuEdinstveno;
-	}
-
+	
+	
+	
 	public static Ingridient getTunaSP() {
 		return tunaSP;
 	}

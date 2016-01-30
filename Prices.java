@@ -20,7 +20,10 @@ class Prices {
 	private static double drinkCola125Price = 1.75;
 	private static double pastaKarbonaraPrice = 5.76;
 	private static double salataRocaPrice = 4.99;
-	private static double TunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni = 9.90;
+	private static double tunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni = 9.90;
+	private static double americanHotBbqDominosSpecialBulgarskaFormadgi = 8.90;
+	private static double mediteraneoShunkaKlasikGardenKlasikHauwaiKarbonara = 7.90;
+	
 	
 	
 	
@@ -127,6 +130,28 @@ class Prices {
 	public static void setSalataRocaPrice(double salataRocaPrice) {
 		Prices.salataRocaPrice = salataRocaPrice;
 	}
+	public static double getTunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni() {
+		return tunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni;
+	}
+	public static void setTunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni(
+			double tunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni) {
+		Prices.tunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni = tunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni;
+	}
+	public static double getAmericanHotBbqDominosSpecialBulgarskaFormadgi() {
+		return americanHotBbqDominosSpecialBulgarskaFormadgi;
+	}
+	public static void setAmericanHotBbqDominosSpecialBulgarskaFormadgi(
+			double americanHotBbqDominosSpecialBulgarskaFormadgi) {
+		Prices.americanHotBbqDominosSpecialBulgarskaFormadgi = americanHotBbqDominosSpecialBulgarskaFormadgi;
+	}
+	public static double getMediteraneoShunkaKlasikGardenKlasikHauwaiKarbonara() {
+		return mediteraneoShunkaKlasikGardenKlasikHauwaiKarbonara;
+	}
+	public static void setMediteraneoShunkaKlasikGardenKlasikHauwaiKarbonara(
+			double mediteraneoShunkaKlasikGardenKlasikHauwaiKarbonara) {
+		Prices.mediteraneoShunkaKlasikGardenKlasikHauwaiKarbonara = mediteraneoShunkaKlasikGardenKlasikHauwaiKarbonara;
+	}
+
 
 	
 	

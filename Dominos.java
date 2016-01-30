@@ -7,10 +7,14 @@ public class Dominos {
 	Restaurant rest1 = new Restaurant("ulica Lisica", "Purvia restorant na Nasheto Dominos");
 	User testuser1 = new User("user1", "111", rest1);
 
-	for(Ingridient i:Menu.peperoni.getInridients()){
-		System.out.println(i.getName());
-	}
-
+//	for(Ingridient i:Menu.peperoniS.getInridients()){
+//		System.out.println(i.getName());
+//	}
+	testuser1.order(Menu.peperoniM);
+	testuser1.order(Menu.peperoniL);
+	testuser1.order(Menu.peperoniS);
+	testuser1.getKolichka().showShoppigCart();
+	System.out.println(testuser1.getKolichka().getTotalSum());
 
 
 
