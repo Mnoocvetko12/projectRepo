@@ -10,10 +10,10 @@ public class Dominos {
 //	for(Ingridient i:Menu.peperoniS.getInridients()){
 //		System.out.println(i.getName());
 //	}
-	testuser1.order(Menu.peperoniM.modifyPlus(Menu.getCornSP()));
-//	tuk otdolu diga cenata vmesto da ja svalja i moge da vadish nesta deto gi njama v pizata?
+//	testuser1.order(Menu.peperoniM.modifyMinus(Menu.getMozarelaPI()));
+	testuser1.order(Menu.peperoniM.modifyPlus(Menu.getMushroomsPP()));
 	testuser1.order(Menu.peperoniL.modifyMinus(Menu.getBasilicumPP()));
-//	testuser1.order(Menu.peperoniS);
+////	testuser1.order(Menu.peperoniS);
 	testuser1.getKolichka().showShoppigCart();
 
 

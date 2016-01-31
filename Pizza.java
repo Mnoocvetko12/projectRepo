@@ -105,32 +105,42 @@ public class Pizza extends CustomFood implements Iconstants {
 		return this.inridients;
 	}
 
-
 	CustomFood modifyMinus(Ingridient sustavka) {
 
-		return (this.addIngridients(sustavka));
+		return (this.removeIngridients(sustavka));
 
 	}
 
 	CustomFood removeIngridients(Ingridient sustavka) {
-		this.inridients = this.removePizzaSustavki(sustavka);
-		if (this.size.equals(PIZZA_S)) {
-			this.setPrice(this.getPrice() - 1.50);
-		}
-		if (this.size.equals(PIZZA_M)) {
-			this.setPrice(this.getPrice() - 2);
-		}
-		if (this.size.equals(PIZZA_L)) {
-			this.setPrice(this.getPrice() - 2.50);
+		if (containsSustavka(sustavka)) {
+			this.inridients = this.removePizzaSustavki(sustavka);
+			if (this.size.equals(PIZZA_S)) {
+				this.setPrice(this.getPrice() - 1.50);
+			}
+			if (this.size.equals(PIZZA_M)) {
+				this.setPrice(this.getPrice() - 2);
+			}
+			if (this.size.equals(PIZZA_L)) {
+				this.setPrice(this.getPrice() - 2.50);
+			}
 		}
 		return this;
 	}
 
 	LinkedList<Ingridient> removePizzaSustavki(Ingridient ingridient) {
-		if (ingridient != null) {
-			this.inridients.remove(ingridient);
+		if (containsSustavka(ingridient)) {
+			if (ingridient != null) {
+				this.inridients.remove(ingridient);
+			}
 		}
 		return this.inridients;
+	}
+
+	boolean containsSustavka(Ingridient ingrid) {
+		if (this.inridients.contains(ingrid)) {
+			return true;
+		}
+		return false;
 	}
 
 	public String getSize() {

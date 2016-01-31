@@ -1,6 +1,6 @@
 package dominos;
 
-public class User {
+public class User implements Cloneable{
 
 	private String username;
 	private String password;
@@ -22,8 +22,18 @@ public class User {
 	
 	
 	void order(Orderable itemFromMenu){
+//		Orderable dummy = (Orderable) itemFromMenu.clone();
 		this.kolichka.addItemToShopCart(itemFromMenu);
 	}
+
+	public Object clone(){  
+	    try{  
+	        return super.clone();  
+	    }catch(Exception e){ 
+	        return null; 
+	    }
+	}
+	
 	
 	
 	public String getUsername() {

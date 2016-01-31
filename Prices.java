@@ -2,7 +2,7 @@ package dominos;
 
 class Prices {
 	
-//	Tuk trjabva da se grupirat cenite naprimer private static double pizzaPeperoniTonChorisanaChik Chirik.....SPrice = 7.90;
+
 	private static double extraItemForSpizzaPrice = 1.00;
 	private static double extraItemForMpizzaPrice = 2.00;
 	private static double extraItemForLpizzaPrice = 3.00;
