@@ -64,7 +64,7 @@ public class Menu implements Iconstants{
 	static Pizza mediteraneoM = new Pizza(PIZZA_MEDITERANEO, PIZZA_M, Pizza.setPeperoniIngridients(), Prices.getTunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni());
 	static Pizza mediteraneoL = new Pizza(PIZZA_MEDITERANEO, PIZZA_L, Pizza.setPeperoniIngridients(), Prices.getTunaCorizanaChicChiricItalianExtravaganzaZvrerskaNewYorkPeperoni());
 	
-
+	
 	
 	
 	

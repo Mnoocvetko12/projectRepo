@@ -16,11 +16,11 @@ public class ShoppingCart {
 		for(Orderable item:poruchka){
 			System.out.println(item);
 		}
+		System.out.println("Total sum " + this.totalSum );
 	}
 	
 	public void addItemToShopCart(Orderable itemOrdered) {
 		if (itemOrdered != null) {
-			System.out.println(this.poruchka);
 			this.poruchka.add(itemOrdered);
 			this.totalSum += itemOrdered.getPrice();
 		}

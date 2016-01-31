@@ -17,9 +17,9 @@ public class Pizza extends CustomFood implements Iconstants {
 			setPrice(price);
 		} else if (size.equals(PIZZA_M)) {
 			setPrice(price + 3.10);
-		} else 
-//			if (size.equals(PIZZA_L)) 
-			{
+		} else
+		// if (size.equals(PIZZA_L))
+		{
 			setPrice(price + 6.60);
 		}
 
@@ -57,20 +57,6 @@ public class Pizza extends CustomFood implements Iconstants {
 		return 800;
 	}
 
-	LinkedList<Ingridient> addPizzaSustavki(Ingridient ingridient) {
-		if (ingridient != null) {
-			this.inridients.add(ingridient);
-		}
-		return this.inridients;
-	}
-
-	void removePizzaSustavki(Ingridient ingridient) {
-		if (ingridient != null) {
-			this.inridients.remove(ingridient);
-		}
-
-	}
-
 	static LinkedList<Ingridient> setPeperoniIngridients() {
 		LinkedList<Ingridient> temp = basicPizzaIngridients();
 		temp.add(doubleIngridiens(Menu.getMozarelaPI()));
@@ -90,6 +76,61 @@ public class Pizza extends CustomFood implements Iconstants {
 		basic.add(Menu.getTomatoSausePP());
 		basic.add(Menu.getMozarelaPI());
 		return basic;
+	}
+
+	CustomFood modifyPlus(Ingridient sustavka) {
+
+		return (this.addIngridients(sustavka));
+
+	}
+
+	CustomFood addIngridients(Ingridient sustavka) {
+		this.inridients = this.addPizzaSustavki(sustavka);
+		if (this.size.equals(PIZZA_S)) {
+			this.setPrice(this.getPrice() + 1.50);
+		}
+		if (this.size.equals(PIZZA_M)) {
+			this.setPrice(this.getPrice() + 2);
+		}
+		if (this.size.equals(PIZZA_L)) {
+			this.setPrice(this.getPrice() + 2.50);
+		}
+		return this;
+	}
+
+	LinkedList<Ingridient> addPizzaSustavki(Ingridient ingridient) {
+		if (ingridient != null) {
+			this.inridients.add(ingridient);
+		}
+		return this.inridients;
+	}
+
+
+	CustomFood modifyMinus(Ingridient sustavka) {
+
+		return (this.addIngridients(sustavka));
+
+	}
+
+	CustomFood removeIngridients(Ingridient sustavka) {
+		this.inridients = this.removePizzaSustavki(sustavka);
+		if (this.size.equals(PIZZA_S)) {
+			this.setPrice(this.getPrice() - 1.50);
+		}
+		if (this.size.equals(PIZZA_M)) {
+			this.setPrice(this.getPrice() - 2);
+		}
+		if (this.size.equals(PIZZA_L)) {
+			this.setPrice(this.getPrice() - 2.50);
+		}
+		return this;
+	}
+
+	LinkedList<Ingridient> removePizzaSustavki(Ingridient ingridient) {
+		if (ingridient != null) {
+			this.inridients.remove(ingridient);
+		}
+		return this.inridients;
 	}
 
 	public String getSize() {

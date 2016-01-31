@@ -45,7 +45,7 @@ public abstract class Orderable {
 
 	@Override
 	public String toString() {
-		return name + " "+ price;
+		return name + "\t"+ price;
 	}
 
 

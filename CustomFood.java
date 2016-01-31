@@ -12,9 +12,6 @@ public abstract class CustomFood extends Orderable {
 		StringBuilder temp = new StringBuilder("Dopulnitelno ");
 		return new Ingridient((temp.append(ingridient.getName()).toString()), ingridient.getPriceOfIngridien()*2);
 	}
-	void addIngridients(Ingridient sustavka){
-		
-		
-	}
+	abstract CustomFood addIngridients(Ingridient sustavka);
 
 }
