@@ -2,7 +2,8 @@ package dominos;
 
 class Prices {
 	
-
+	private static double extraPriceForMSize =3.10;
+	private static double extraPriceForLSize =6.60;
 	private static double extraItemForSpizzaPrice = 1.00;
 	private static double extraItemForMpizzaPrice = 2.00;
 	private static double extraItemForLpizzaPrice = 3.00;
@@ -150,6 +151,18 @@ class Prices {
 	public static void setMediteraneoShunkaKlasikGardenKlasikHauwaiKarbonara(
 			double mediteraneoShunkaKlasikGardenKlasikHauwaiKarbonara) {
 		Prices.mediteraneoShunkaKlasikGardenKlasikHauwaiKarbonara = mediteraneoShunkaKlasikGardenKlasikHauwaiKarbonara;
+	}
+	public static double getExtraPriceForMSize() {
+		return extraPriceForMSize;
+	}
+	public static void setExtraPriceForMSize(double extraPriceForMSize) {
+		Prices.extraPriceForMSize = extraPriceForMSize;
+	}
+	public static double getExtraPriceForLSize() {
+		return extraPriceForLSize;
+	}
+	public static void setExtraPriceForLSize(double extraPriceForLSize) {
+		Prices.extraPriceForLSize = extraPriceForLSize;
 	}
 
 

@@ -20,12 +20,6 @@ public class User implements Cloneable{
 
 //	void addIngridientsTothePizza()
 	
-	
-	void order(Orderable itemFromMenu){
-//		Orderable dummy = (Orderable) itemFromMenu.clone();
-		this.kolichka.addItemToShopCart(itemFromMenu);
-	}
-
 	public Object clone(){  
 	    try{  
 	        return super.clone();  
@@ -33,6 +27,13 @@ public class User implements Cloneable{
 	        return null; 
 	    }
 	}
+	
+	void order(Orderable itemFromMenu){
+//		Orderable dummy = (Orderable) itemFromMenu.clone();
+		this.kolichka.addItemToShopCart(itemFromMenu);
+	}
+
+
 	
 	
 	

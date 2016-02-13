@@ -5,9 +5,23 @@ public abstract class Orderable {
 	private String name;
 	private String decription;
 	private double weightOrVolume;
+	
 
 	Orderable(String name) {
 		setName(name);
+
+	}
+
+	public Orderable(double price, String name) {
+		setPrice(price);
+		setName(name);
+	}
+
+	public Orderable(double price, String name, String decription, double weightOrVolume) {
+		setPrice(price);
+		setName(name);
+		setDecription(decription);
+		setWeightOrVolume(weightOrVolume);
 
 	}
 
@@ -16,7 +30,9 @@ public abstract class Orderable {
 	}
 
 	public void setPrice(double price) {
-		this.price = price;
+		if (price > 0) {
+			this.price = price;
+		}
 	}
 
 	public String getDecription() {
@@ -24,7 +40,9 @@ public abstract class Orderable {
 	}
 
 	public void setDecription(String decription) {
-		this.decription = decription;
+		if (decription != null) {
+			this.decription = decription;
+		}
 	}
 
 	public double getWeightOrVolume() {
@@ -32,7 +50,9 @@ public abstract class Orderable {
 	}
 
 	public void setWeightOrVolume(double weightOrVolume) {
-		this.weightOrVolume = weightOrVolume;
+		if (weightOrVolume > 0) {
+			this.weightOrVolume = weightOrVolume;
+		}
 	}
 
 	public String getName() {
@@ -40,16 +60,17 @@ public abstract class Orderable {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		if (name != null) {
+			this.name = name;
+		}
 	}
 
 	@Override
 	public String toString() {
-		return name + "\t"+ price;
+		if (this.name != null) {
+			return name + "\t" + price;
+		}
+		return "";
 	}
-
-
-
-
 
 }

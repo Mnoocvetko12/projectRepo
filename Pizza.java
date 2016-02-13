@@ -8,28 +8,30 @@ public class Pizza extends CustomFood implements Iconstants {
 	public static final String PIZZA_TESTO_DEBELO = "Tradicionno";
 	public static final String CATEGORY_PIZZA = "PIZZA";
 	private String size;
+	private static Menu menu;
 	// private String debelinaNaTestoto;
 	private LinkedList<Ingridient> inridients;
 
-	public Pizza(String name, String size, LinkedList<Ingridient> inridients, double price) {
+	public Pizza(String name, String size, double price) {
 		super(name);
+		menu = Menu.createMenu();
 		if (size.equals(PIZZA_S)) {
-			setPrice(price);
+			this.setPrice(price);
 		} else if (size.equals(PIZZA_M)) {
-			setPrice(price + 3.10);
+			this.setPrice(price + Prices.getExtraPriceForMSize());
 		} else
 		// if (size.equals(PIZZA_L))
 		{
-			setPrice(price + 6.60);
+			this.setPrice(price + Prices.getExtraPriceForLSize());
 		}
-
+		this.inridients = basicPizzaIngridients();
 		setSize(size);
 		// setDebelinaNaTestoto(debelinaNaTestoto);
-		this.inridients = inridients;
+
 		setWeightOrVolume(weightOfPizza(size
 		// , debelinaNaTestoto
 		));
-
+		menu.addOrderable(this);
 	}
 
 	int weightOfPizza(String size
@@ -57,35 +59,17 @@ public class Pizza extends CustomFood implements Iconstants {
 		return 800;
 	}
 
-	static LinkedList<Ingridient> setPeperoniIngridients() {
-		LinkedList<Ingridient> temp = basicPizzaIngridients();
-		temp.add(doubleIngridiens(Menu.getMozarelaPI()));
-		temp.add(Menu.getPeperoniPP());
-		temp.add(doubleIngridiens(Menu.getPeperoniPP()));
-
-		return temp;
-
-	}
-
-	void changePrice(double priceAddition) {
-		this.setPrice(this.getPrice() + priceAddition);
-	}
-
 	static LinkedList<Ingridient> basicPizzaIngridients() {
 		LinkedList<Ingridient> basic = new LinkedList<Ingridient>();
-		basic.add(Menu.getTomatoSausePP());
-		basic.add(Menu.getMozarelaPI());
+		basic.add(new Ingridient("Domaten sos"));
+		basic.add(new Ingridient("Mozarela"));
 		return basic;
 	}
 
-	CustomFood modifyPlus(Ingridient sustavka) {
-
-		return (this.addIngridients(sustavka));
-
-	}
-
-	CustomFood addIngridients(Ingridient sustavka) {
-		this.inridients = this.addPizzaSustavki(sustavka);
+	CustomFood modifyPlus(Ingridient...sustavki) {
+//		this.inridients = this.addPizzaSustavki(sustavka);
+		for(Ingridient ingri : sustavki){
+			addPizzaSustavki(ingri);
 		if (this.size.equals(PIZZA_S)) {
 			this.setPrice(this.getPrice() + 1.50);
 		}
@@ -94,26 +78,21 @@ public class Pizza extends CustomFood implements Iconstants {
 		}
 		if (this.size.equals(PIZZA_L)) {
 			this.setPrice(this.getPrice() + 2.50);
-		}
+		}}
 		return this;
 	}
 
-	LinkedList<Ingridient> addPizzaSustavki(Ingridient ingridient) {
+	void addPizzaSustavki(Ingridient ingridient) {
 		if (ingridient != null) {
 			this.inridients.add(ingridient);
 		}
-		return this.inridients;
+		
 	}
 
-	CustomFood modifyMinus(Ingridient sustavka) {
-
-		return (this.removeIngridients(sustavka));
-
-	}
-
-	CustomFood removeIngridients(Ingridient sustavka) {
-		if (containsSustavka(sustavka)) {
-			this.inridients = this.removePizzaSustavki(sustavka);
+	CustomFood modifyMinus(Ingridient...sustavki) {
+		for(Ingridient ingri : sustavki){
+		if (containsSustavka(ingri)) {
+			removePizzaSustavki(ingri);
 			if (this.size.equals(PIZZA_S)) {
 				this.setPrice(this.getPrice() - 1.50);
 			}
@@ -123,17 +102,17 @@ public class Pizza extends CustomFood implements Iconstants {
 			if (this.size.equals(PIZZA_L)) {
 				this.setPrice(this.getPrice() - 2.50);
 			}
-		}
+		}}
 		return this;
 	}
 
-	LinkedList<Ingridient> removePizzaSustavki(Ingridient ingridient) {
+	void removePizzaSustavki(Ingridient ingridient) {
 		if (containsSustavka(ingridient)) {
 			if (ingridient != null) {
 				this.inridients.remove(ingridient);
 			}
 		}
-		return this.inridients;
+		
 	}
 
 	boolean containsSustavka(Ingridient ingrid) {
@@ -158,52 +137,5 @@ public class Pizza extends CustomFood implements Iconstants {
 	public void setInridients(LinkedList<Ingridient> inridients) {
 		this.inridients = inridients;
 	}
-
-	// public String getDebelinaNaTestoto() {
-	// return debelinaNaTestoto;
-	// }
-	//
-	// public void setDebelinaNaTestoto(String debelinaNaTestoto) {
-	// this.debelinaNaTestoto = debelinaNaTestoto;
-	// }
-
-	// int setIngridiens(String name) {
-	// if (name.equals(Menu.PIZZA_PEPERONI)) {
-	// setIngridiensPeperoni();
-	// return 9.90;
-	//
-	//
-	// }
-	// if (name.equals(Menu.PIZZA_GARDEN_KLASIK)) {
-	// setIngridiensGerdenClasic();
-	// return 7.90;
-	// }
-	// // trtjabva da se dopishe s vsi4ki pizi
-	//
-	// }
-	//
-	// // I taka za vsichki pizzi - start
-	// void setIngridiensGerdenClasic() {
-	// setIngridiensBasicPizza();
-	// inridiens.add(Menu.getOlivesAll());
-	// inridiens.add(Menu.getGreenPeppersALL());
-	// inridiens.add(Menu.getOnion_SP());
-	// inridiens.add(Menu.getFreshTomatosALL());
-	// inridiens.add(Menu.getMushroomsPP());
-	// }
-	//
-	// void setIngridiensPeperoni() {
-	// setIngridiensBasicPizza();
-	// inridiens.add(super.doubleIngridiens(Menu.getMozarelaPI()));
-	// inridiens.add(Menu.getPeperoniPP());
-	// inridiens.add(super.doubleIngridiens(Menu.getPeperoniPP()));
-	//
-	// }
-	// // I taka za vsichki pizzi - end
-	//
-	// void setIngridiensBasicPizza() {
-	// this.inridiens.add(Menu.getTomatoSausePP());
-	// this.inridiens.add(Menu.getMozarelaPI());
-	// }
 
 }

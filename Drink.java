@@ -1,11 +1,12 @@
 package dominos;
 
-
 public class Drink extends Orderable {
-	Drink(String name) {
-		super(name);
-		// TODO Auto-generated constructor stub
-	}
-
 	public static final String CATEGORY_DRINKS = "DRINKS";
+	private static Menu menu;
+
+	Drink(double price, String name, String decription, double weightOrVolume) {
+		super(price, name, decription, weightOrVolume);
+		menu = Menu.createMenu();
+		menu.addOrderable(this);
+	}
 }
